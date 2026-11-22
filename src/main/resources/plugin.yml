@@ -1,0 +1,37 @@
+name: PlaytimeGate
+version: '${version}'
+main: ru.playtimegate.PlaytimeGatePlugin
+# Paper 26.x понимает как "26.2", так и старые значения вида "1.21".
+# Если сервер откажется загружать плагин с этим значением — замените на '26.2'.
+api-version: '1.21'
+authors: [ Talloran ]
+description: Временное ограничение действий в приватах WorldGuard для новичков + статистика наигранного времени
+depend: [ WorldGuard ]
+softdepend: [ TAB ]
+
+commands:
+  playtime:
+    description: Показать наигранное время
+    usage: /playtime [ник|reload]
+    aliases: [ pt, vremya ]
+  ptop:
+    description: Топ игроков по наигранному времени
+    usage: /ptop [страница]
+    aliases: [ toptime ]
+
+permissions:
+  playtimegate.use:
+    description: Доступ к /playtime
+    default: true
+  playtimegate.others:
+    description: Просмотр наигранного времени других игроков
+    default: op
+  playtimegate.top:
+    description: Доступ к /ptop
+    default: true
+  playtimegate.reload:
+    description: Перезагрузка конфигурации
+    default: op
+  playtimegate.bypass:
+    description: Обход ограничения приватов по времени
+    default: op
